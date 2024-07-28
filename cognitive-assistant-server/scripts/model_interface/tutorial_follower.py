@@ -5,7 +5,6 @@ import numpy as np
 
 from ..utils import Response
 from .ferret_with_gpt import ask_spatial_llm
-from .instructions_prepare import instruction_breakdown, get_curr_instruction, is_instruction_complete
 
 class TutorialFollower:
     def __init__(self, data_collector):
@@ -15,7 +14,7 @@ class TutorialFollower:
         self.answer: Response = None
         self.current_instruction = ""
         self.current_instruction_index = 0
-        self.task = "multimeter" #"humidifier"
+        self.task = "multimeter" # "humidifier", "blocks_1", "blocks_2", "blocks_3", "multimeter"
 
     def get_inst(self, instruction_file, input_file):
         file = open(instruction_file, "r")
@@ -51,30 +50,26 @@ class TutorialFollower:
                 last_frameID = latest_frames[-1].frameID
                 for frame in latest_frames:
                     frame_img.append(np.asarray(frame.img))
-                print("here")
+                    
+                self.answer = self.current_instruction + '\n Current instruction state: ' + answer
+                gpt_prompt = "I am currently trying to do the instruction: " + self.current_instruction + "\n Have I done the instruction? I am giving you a frame showing the current state of my environment from an ego-centric view. Does it look like the instruction may have been done? If there is any chance it might be done, say true. Be linient in your responses. Answer just True or False. If false, tell me what I am missing. If unsure, say 'true'. Remember right is left and left is right (the image is mirrored). Here is the complete list of instructions: " + str(self.instructions)
+                ferret_prompt = "Find the following object for me. Give me an answer as a comma separated list with the format: object name = <co-ordinates>, object name:<co-ordinates>. If you cannot find a certain object with confidence, replace its coordinates with None. Do not give me more coordinates than I have asked for. Only give me coordinated for the objects I asked. The objects are: " + str(self.inst_inputs[self.current_instruction_index])
                 try:
-                    answer = is_instruction_complete(frame_img, self.instructions, self.current_instruction)
+                    gpt_answer, response = ask_spatial_llm(ferret_prompt, gpt_prompt,frame_img[-1], frame_img, None)
                 except:
                     continue
-                print(answer)
+                print("Ferret response = " + response)
+                self.answer = str(last_frameID)+ "///" + self.current_instruction + '\n Current instruction state: ' + answer + response
                 self.prev_instruction_index =  self.current_instruction_index
-                for line in answer.splitlines():
+                for line in gpt_answer.splitlines():
                     if "true" in line.lower():
                         self.current_instruction_index += 1
                     if 'Instruction number:' in line:
                         current_instruction_index = line.split('Instruction number:')[1]
                         self.current_instruction_index = int(current_instruction_index) 
-                    
-                
                 if  self.current_instruction_index < self.prev_instruction_index:
                     self.current_instruction_index = self.prev_instruction_index
                 self.current_instruction = self.instructions[self.current_instruction_index]
-                self.answer = self.current_instruction + '\n Current instruction state: ' + answer
-                if (self.prev_instruction_index != self.current_instruction_index) or self.current_instruction_index == 0:
-                    ferret_prompt = "Find the following object for me. Give me an answer as a comma separated list with the format: object name = <co-ordinates>, object name:<co-ordinates>. If you cannot find a certain object with confidence, replace its coordinates with None. Do not give me more coordinates than I have asked for. Only give me coordinated for the objects I asked. The objects are: " + str(self.inst_inputs[self.current_instruction_index])
-                    response = ask_spatial_llm(ferret_prompt, "",frame_img[-1], None, None)
-                    print("Ferret response = " + response)
-                    self.answer = str(last_frameID)+ "///" + self.current_instruction + '\n Current instruction state: ' + answer + response
             time.sleep(0.1)
 
 

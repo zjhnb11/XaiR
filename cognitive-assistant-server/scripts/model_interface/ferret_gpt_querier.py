@@ -20,12 +20,6 @@ class FerretGPTQuerier(LLMQuerier):
             'Answer the question in just one or two sentences ' +\
             'User Question: ' + question_to_process.text
 
-        # start = time.time()
         views, view_coords = split_image(frame_to_give_llm,1)
         response_text = ask_spatial_llm(question_to_ask_ferret, question_to_ask_gpt, frame_to_give_llm, views, view_coords)
-        # end = time.time()
-
-        # print('Time taken for LLM response: ', end - start, ' seconds')
-        # print('\n===\nAnswer from assistant:\n', response, '\n===\n')
-
         self.answer = Response(response_text, question_to_process)

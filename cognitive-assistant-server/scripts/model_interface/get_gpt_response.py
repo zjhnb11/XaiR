@@ -9,16 +9,14 @@ from tqdm import tqdm
 import cv2
 from scripts.constants import API_KEY
 
-
-
 import base64
+
 
 # Function to encode an image file to base64
 def encode_image_to_base64(image_path):
     with open(image_path, "rb") as image_file:
         b = image_file.read()
         image = Image.open(io.BytesIO(b))
-        image.save("later.png")
         encoded_string = base64.b64encode(b).decode('utf-8')
     return encoded_string
 
@@ -56,6 +54,7 @@ def ask_gpt(prompt, views):
     )
     response = response.choices[0]
     return response.message.content
+
 
 def ask_gpt_3_5(prompt):
     client = OpenAI(api_key=API_KEY)
