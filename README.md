@@ -29,3 +29,26 @@ Download essential libraries
 conda install --yes --file requirements.txt
 pip install --upgrade pip  # enable PEP 660 support
 ```
+
+Generate certs:
+```
+mkdir ssl
+openssl req -x509 -newkey rsa:2048 -keyout ssl/key.pem -out ssl/cert.pem -days 365
+openssl rsa -in ssl/key.pem -out ssl/newkey.pem && mv ssl/newkey.pem ssl/key.pem
+```
+
+## Run Ferret
+Enter the ferret directory and run
+```
+conda activate ferret
+```
+
+In a Terminal window, run
+```
+python -m ferret.serve.controller --host 0.0.0.0 --port 10000
+```
+
+In another Terminal window, run
+```
+CUDA_VISIBLE_DEVICES=0 python -m ferret.serve.model_worker --host 0.0.0.0 --controller http://localhost:10000 --port 40000 --worker http://localhost:40000 --model-path <PATH TO FERRET MODEL> --add_region_feature
+```
