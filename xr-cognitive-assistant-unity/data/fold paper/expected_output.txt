@@ -1,0 +1,5 @@
+The expected output after completing the step is that you should have a piece of paper in your hand.
+Expected output: You should have a pen in your hand.
+Expected output: The word "hi" written on the paper with the pen.
+The expected output is a folded piece of paper with the top edge aligned with the bottom edge, creating a horizontal crease across the middle of the paper. The paper should now be half its original size with the folded edge at the top.
+The expected output is a piece of paper that has been folded in half, with the edges aligned and a sharp crease along the fold line. The paper should now be half the size it was before and have a symmetrical appearance.

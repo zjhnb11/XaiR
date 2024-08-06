@@ -51,15 +51,15 @@ class TutorialFollower:
                 for frame in latest_frames:
                     frame_img.append(np.asarray(frame.img))
                     
-                self.answer = self.current_instruction + '\n Current instruction state: ' + answer
+
                 gpt_prompt = "I am currently trying to do the instruction: " + self.current_instruction + "\n Have I done the instruction? I am giving you a frame showing the current state of my environment from an ego-centric view. Does it look like the instruction may have been done? If there is any chance it might be done, say true. Be linient in your responses. Answer just True or False. If false, tell me what I am missing. If unsure, say 'true'. Remember right is left and left is right (the image is mirrored). Here is the complete list of instructions: " + str(self.instructions)
                 ferret_prompt = "Find the following object for me. Give me an answer as a comma separated list with the format: object name = <co-ordinates>, object name:<co-ordinates>. If you cannot find a certain object with confidence, replace its coordinates with None. Do not give me more coordinates than I have asked for. Only give me coordinated for the objects I asked. The objects are: " + str(self.inst_inputs[self.current_instruction_index])
                 try:
-                    gpt_answer, response = ask_spatial_llm(ferret_prompt, gpt_prompt,frame_img[-1], frame_img, None)
+                    gpt_answer, response = ask_spatial_llm(ferret_prompt, gpt_prompt,frame_img[-1], frame_img)
                 except:
                     continue
                 print("Ferret response = " + response)
-                self.answer = str(last_frameID)+ "///" + self.current_instruction + '\n Current instruction state: ' + answer + response
+                self.answer = str(last_frameID)+ "///" + self.current_instruction + '\n Current instruction state: ' + gpt_answer + response
                 self.prev_instruction_index =  self.current_instruction_index
                 for line in gpt_answer.splitlines():
                     if "true" in line.lower():

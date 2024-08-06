@@ -7,9 +7,16 @@ import random
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import cv2
-from scripts.constants import API_KEY
+
+#add script path to sys path
+import sys
+sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../")
+
+from constants import API_KEY
 
 import base64
+
+
 
 
 # Function to encode an image file to base64

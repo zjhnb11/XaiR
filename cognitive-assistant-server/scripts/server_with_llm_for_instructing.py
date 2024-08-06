@@ -7,6 +7,8 @@ import ssl
 import time
 import uuid
 
+
+
 import whisper
 import cv2
 import torch
@@ -20,7 +22,7 @@ from queue import Queue
 
 from aiohttp import web
 from aiortc import MediaStreamTrack, RTCPeerConnection, RTCSessionDescription
-from aiortc.contrib.media import MediaBlackhole, MediaPlayer, MediaRecorder, MediaRelay
+from aiortc.contrib.media import MediaRelay
 from av import AudioFrame, AudioFormat, AudioResampler, AudioFifo
 
 from jinja2 import Environment, FileSystemLoader
@@ -28,12 +30,11 @@ from jinja2 import Environment, FileSystemLoader
 from .constants import *
 from .data_collector import DataCollector
 from .model_interface.ferret_gpt_querier import FerretGPTQuerier
-from .model_interface.human_querier import HumanQuerier
 from .model_interface.tutorial_follower import TutorialFollower
-from .spatial_memory import HistoryLogger
 from .utils import Frame, Question
 
 import av.logging
+
 # monkey patch av.logging.restore_default_callback, ie remove the annoying ffmpeg prints
 restore_default_callback = lambda *args: args
 av.logging.restore_default_callback = restore_default_callback
@@ -56,7 +57,6 @@ tutorial_follower = TutorialFollower(data_collector)
 
 # shared variables
 datachannels = {}
-
 frameID = None
 sessionId = 0
 
@@ -105,7 +105,7 @@ class WebRTCSource(sr.AudioSource):
 
 
 def process_user_speech_thread(source: sr.AudioSource, model_name="small", record_timeout=4, phrase_timeout=3, energy_threshold=100):
-    global pending_questions, sessionId, history
+    global pending_questions, sessionId
 
     audio_model = whisper.load_model(model_name + ".en")
     data_queue = Queue()
@@ -136,6 +136,7 @@ def process_user_speech_thread(source: sr.AudioSource, model_name="small", recor
             # Clear the current working audio buffer to start over with the new data.
             if phrase_time and now - phrase_time > timedelta(seconds=phrase_timeout):
                 phrase_complete = False
+            
             # If enough time has passed between recordings, consider the phrase complete.
             # Clear the current working audio buffer to start over with the new data.
             if phrase_time and now - phrase_time > timedelta(seconds=phrase_timeout):
@@ -168,15 +169,7 @@ def process_user_speech_thread(source: sr.AudioSource, model_name="small", recor
                 print('\n===\nUser question:\n', line, '\n===\n')
                 if 'alexa' in line.split(' ')[0]:
                     line = line.split('alexa')[1]
-                    if (("start" in line) and ("recording" in line)):
-                        history.start(sessionId, frameID)
-                        print("started recording")
-                        sessionId += 1
-                    elif (("stop" in line) and ("recording" in line)):
-                        history.stop(frameID)
-                        print("stopped recording")
-                        sessionId += 1
-                    elif (("start" in line) and ("tutorial" in line)):
+                    if (("start" in line) and ("tutorial" in line)):
                         tutorial_follower.start()
                     else:
                         question_to_ask = Question(line)
@@ -211,9 +204,6 @@ class AudioTransformTrack(MediaStreamTrack):
             datachannels[LLM_OUTPUT_DC_LABEL].send(response.text)
             ferret_gpt.clear_answer()
         
-        
-
-            
 
         out_frame: AudioFrame = await self.track.recv()
 
@@ -239,7 +229,6 @@ async def receiveImage(request):
     img = Image.frombytes('RGBA', (640,480), image[4:], 'raw')
 
     data_collector.add_frame(Frame(img, frameID))
-    img.save("test" + str(frameID)+ ".png")
 
 
 async def offer(request):
@@ -267,7 +256,6 @@ async def offer(request):
         if (pc.connectionState == 'closed'):
             while(len(data_collector.latest_frames_queue.queue) != 0):
                 continue
-            history.print_history()
         if pc.connectionState == 'failed':
             await pc.close()
             pcs.discard(pc)

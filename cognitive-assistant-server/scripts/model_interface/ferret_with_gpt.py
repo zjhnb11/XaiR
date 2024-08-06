@@ -45,7 +45,7 @@ def draw_view(image, x1, y1, x2, y2):
     image.save("./images/out_gpt.jpg")
 
 
-def ask_spatial_llm(prompt_ferret, prompt_gpt, image, views, view_coords):
+def ask_spatial_llm(prompt_ferret, prompt_gpt, image, views):
     if prompt_gpt != "":
         image_section = [None, None]
         gpt_thread = Thread(target=gpt_question, args=(prompt_gpt, views, image_section))

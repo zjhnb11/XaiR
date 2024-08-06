@@ -1,0 +1,5 @@
+- Pick up a piece of paper 
+- Pick up a pen 
+- Write the word "hi" on the paper using the pen 
+- Take the top edge of the paper and fold it towards the bottom edge 
+- Match up the edges and crease the fold to create a half-folded paper

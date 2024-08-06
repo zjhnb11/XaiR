@@ -18,7 +18,6 @@ def encode_image_to_base64(img):
     _, buffer = cv2.imencode('.jpg', np.asarray(cv2.cvtColor(img, cv2.COLOR_RGB2BGR)))
     encoded_image = base64.b64encode(buffer)
     image = Image.open(io.BytesIO(buffer))
-    image.save("later.png")
     return encoded_image.decode('utf-8')
 
 def gen_ferret_prompt(prompt):
