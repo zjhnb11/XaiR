@@ -111,6 +111,7 @@ namespace MagicLeap.Examples
             MLPermissions.RequestPermission(MLPermission.SpatialMapping, permissionCallbacks);
             _meshingSubsystemComponent.meshAdded += HandleOnMeshReady;
             _meshingSubsystemComponent.meshUpdated += HandleOnMeshReady;
+            // SetRenderers(_renderMode);
 
             _meshingSubsystemComponent.gameObject.transform.position = _camera.gameObject.transform.position;
         }
@@ -235,6 +236,50 @@ namespace MagicLeap.Examples
                 MeshCollider meshCollider = meshGameObject.AddComponent<MeshCollider>();
                 meshCollider.sharedMesh = mf.mesh;
             }
+            //     if (mf != null){
+            //         Debug.Log("here again");
+            //         Vector3 raycastOrigin = Camera.main.transform.position;
+            //         Ray ray = new Ray(raycastOrigin, Camera.main.transform.forward);
+            //         RaycastHit hitInfo;
+
+            //         if (Physics.Raycast(ray, out hitInfo))
+            //         {
+            //             // Handle hit result
+            //             Debug.Log("Hit point: " + hitInfo.point);
+            //         }
+            //     }
+            // }
+            //     if ((mr != null) && (mf != null))
+            //     {
+            //         mr.enabled = renderMode != RenderMode.None;
+
+            //         Mesh mesh = mf.mesh;
+
+            //         // Gather vertices
+            //         Vector3[] vertices = mesh.vertices;
+
+            //         // Gather triangles
+            //         int[] triangles = mesh.triangles;
+
+            //         // Gather normals (optional)
+            //         Vector3[] normals = mesh.normals;
+
+            //         // Gather UVs (optional)
+            //         Vector2[] uvs = mesh.uv;
+                
+            //         Debug.Log(vertices.Length);
+            //         //Json with ID and position 
+            //         JsonObject jsonObj = new JsonObject();
+            //         jsonObj["id"] = meshId.ToString();
+            //         //jsonObj["blah"] = "dsffhhhhhhhhhhhhhhhhsddddddddddddddddddddddddddddddddddddddddddsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd";
+            //         jsonObj["vertices"] = Vector3ArrayToJsonString(vertices);
+            //         //jsonObj["triangles"] = triangles.ToString();
+            //         // jsonObj["normals"] = Vector3ArrayToJsonString(normals);
+            //         //jsonObj["uvs"] = Vector2ArrayToJsonString(uvs);
+            //         webRTCConnection.GetComponent<WebRTCConnection>().SendMessageOnMeshDataChannel(jsonObj.ToString());
+                    
+            //     }
+            // }
         }
     }
 }

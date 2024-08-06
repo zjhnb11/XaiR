@@ -1258,7 +1258,7 @@ MonoBehaviour:
   audioType: 1
   localAppDefinedAudioSourceBehavior: {fileID: 2138962158}
   remoteAudioSinkBehavior: {fileID: 58514378}
-  cubePrefab: {fileID: 919132149155446097, guid: fe7f6c4cd5c93154b874200689cfd2fd,
+  cubePrefab: {fileID: 7060039518517116321, guid: a9f73b0e940e5c147a6928b383e79f01,
     type: 3}
 --- !u!4 &1375737370
 Transform:

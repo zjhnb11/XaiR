@@ -58,7 +58,7 @@ class TutorialFollower:
                     gpt_answer, response = ask_spatial_llm(ferret_prompt, gpt_prompt,frame_img[-1], frame_img)
                 except:
                     continue
-                self.answer = str(last_frameID)+ "///" + self.current_instruction + '\n Current instruction state: ' + gpt_answer + response
+                self.answer = str(last_frameID)+ "///" + self.current_instruction + '\n Current instruction state: ' +  response
                 self.prev_instruction_index =  self.current_instruction_index
                 for line in gpt_answer.splitlines():
                     if "true" in line.lower():

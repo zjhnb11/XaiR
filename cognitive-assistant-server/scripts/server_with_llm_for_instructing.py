@@ -198,7 +198,7 @@ class AudioTransformTrack(MediaStreamTrack):
             tutorial_follower.clear_answer()
             ferret_gpt.clear_answer()
 
-            print(f'Answer from LLM assistant: \"{response}\"')
+            print(f'Answer from LLM assistant: \"{response}\" \n\n\n')
         elif ferret_gpt.get_answer() is not None:
             response = ferret_gpt.get_answer()
             datachannels[LLM_OUTPUT_DC_LABEL].send(response.text)

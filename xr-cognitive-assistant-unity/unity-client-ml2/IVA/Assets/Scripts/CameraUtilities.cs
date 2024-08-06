@@ -46,6 +46,7 @@ public class CameraUtilities
         Vector3 hitPoint = ray.GetPoint(_rayLength);
 
         // Raycast against the WorldMesh to find where the ray intersects.
+        // TODO: Add a layer mask filter to prevent unwanted obstructions.
         int layerMask = 0;
         layerMask = ~layerMask;
         if (Physics.Raycast(ray, out RaycastHit hit))
@@ -53,6 +54,24 @@ public class CameraUtilities
             hitPoint = hit.point;
             _rayLength = hit.distance;
         }
+
+        // if (_meshingSubsystemComponent.meshIdToGameObjectMap.TryGetValue(meshId, out var meshGameObject))
+        //     {
+        //         Debug.Log("here");
+        //         var mf = meshGameObject.GetComponent<MeshFilter>();
+        //         MeshCollider meshCollider = meshGameObject.AddComponent<MeshCollider>();
+        //         meshCollider.sharedMesh = mf.mesh;
+        //         if (mf != null){
+        //             Debug.Log("here again");
+        //             RaycastHit hitInfo;
+
+        //             if (Physics.Raycast(ray, out hitInfo))
+        //             {
+        //                 // Handle hit result
+        //                 Debug.Log("Hit point: " + hitInfo.point);
+        //             }
+        //         }
+        //     }
 
         return hitPoint;
     }

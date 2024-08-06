@@ -48,7 +48,6 @@ def create_question_content(prompt, views):
 def ask_gpt(prompt, views):
     content = create_question_content(prompt, views)
     client = OpenAI(api_key=API_KEY)
-    print("here in gpt")
 
     response = client.chat.completions.create(
         model="gpt-4o",
@@ -61,7 +60,6 @@ def ask_gpt(prompt, views):
         max_tokens=3500,
     )
     response = response.choices[0]
-    print(response.message.content)
     return response.message.content
 
 
