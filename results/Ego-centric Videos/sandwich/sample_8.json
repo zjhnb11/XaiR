@@ -1,0 +1,53 @@
+{
+    "0": {},
+    "1": {
+        "1712959478.207103": {
+            "poseID": 10,
+            "sceneDescription": "In this segment of the video, a person is unwrapping and placing two slices of gluten-free bread onto a wooden surface. They appear to be preparing to make a sandwich or some other type of bread-based meal."
+        },
+        "1712959494.165851": {
+            "poseID": 20,
+            "sceneDescription": "In this video segment, two slices of bread are spread with a substance, likely a type of margarine or butter, from a plastic container labeled \"Nuttelex Original.\" The spreading action happens quickly between frames, indicating a rapid, smooth motion likely performed by someone experienced with the task."
+        },
+        "1712959508.7391803": {
+            "poseID": 30,
+            "sceneDescription": "In this segment of the video, a person is preparing slices of bread by spreading butter on them. Each frame shows the progression of butter being spread evenly across the bread's surface."
+        },
+        "1712959526.4645398": {
+            "poseID": 40,
+            "sceneDescription": "In this segment of the video, a person is spreading a creamy substance, likely butter or a similar spread, onto two slices of bread. They are doing so evenly, making sure to cover the entire surface of each slice."
+        },
+        "1712959555.521152": {
+            "poseID": 50,
+            "sceneDescription": "A person is unscrewing the lid of a jar with red and green ribbon and labeling that says \"Mulberry, Raspberry & Blueberry Jam, Made: Dec 2019,\" then setting the jar next to two slices of bread on a wooden surface. Over the course of these images, the jar is opened, placed on the surface, and left next to the bread, likely in preparation for spreading the jam on the slices."
+        },
+        "1712959571.9755883": {
+            "poseID": 60,
+            "sceneDescription": "In this segment of the video, a person is preparing slices of bread by spreading a layer of butter and then adding a layer of jam. The process involves spreading butter on two slices, opening a jam jar, spreading jam on one slice, and then likely preparing to spread jam on the second slice."
+        },
+        "1712959587.758397": {
+            "poseID": 70,
+            "sceneDescription": "In this series of images, someone is spreading a red, jelly-like substance, possibly jam or preserves, onto a slice of bread that is already coated with a white, creamy spread, possibly butter or cream cheese. They progressively spread the jelly, achieving an even layer across the slice of bread."
+        },
+        "1712959602.154074": {
+            "poseID": 80,
+            "sceneDescription": "In this sequence of images, someone is spreading red jam on a slice of bread with a knife while holding the slice in place with the other hand. After spreading the jam, the knife is used to connect portions from the jam-covered slice to the other slice with no jam."
+        },
+        "1712959618.5723648": {
+            "poseID": 90,
+            "sceneDescription": "In this segment of the video, two slices of bread are being prepared with spreads\u2014one with cream cheese and the other with jam\u2014and then pressed together to make a sandwich. The final frame shows the completed sandwich on the wooden surface."
+        },
+        "1712959629.0782351": {
+            "poseID": 100,
+            "sceneDescription": "A person is cutting a piece of toast on a wooden cutting board, first cutting it in half diagonally and then into quarters before placing it on a plate. The individual is using a knife and applying a downward pressing motion to slice the bread."
+        },
+        "1712959641.776355": {
+            "poseID": 110,
+            "sceneDescription": "In this video segment, a person is shown cutting a sandwich into smaller pieces and arranging them on a plate. This sequence demonstrates a simple meal preparation task performed with a knife and plate on a wooden surface."
+        },
+        "1712959654.9450312": {
+            "poseID": 119,
+            "sceneDescription": "A sandwich is being assembled on a plate, and a piece of pretzel bread is being added in between two halves of a sandwich with red jam and cream filling. In the final frame, the pretzel bread is placed to complete the sandwich configuration."
+        }
+    }
+}

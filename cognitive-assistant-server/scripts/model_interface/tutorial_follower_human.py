@@ -29,15 +29,15 @@ class TutorialFollowerHuman:
 
     def start(self):
         if self.task == "humidifier":
-            self.get_inst("/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/humidifier/ground_truth.txt","/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/humidifier/ground_truth_inputs.txt")
+            self.get_inst("./results/Ego-centric Videos/humidifier/ground_truth.txt","./results/Ego-centric Videos/humidifier/ground_truth_inputs.txt")
         elif self.task == "blocks_1":
-            self.get_inst("/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/instructions_1.txt", "/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/inputs_1.txt")
+            self.get_inst("./results/Ego-centric Videos/building_blocks/instructions_1.txt", "/./results/Ego-centric Videos/building_blocks/inputs_1.txt")
         elif self.task == "blocks_2":
-            self.get_inst("/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/instructions_2.txt", "/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/inputs_2.txt")
+            self.get_inst("./results/Ego-centric Videos/building_blocks/instructions_2.txt", "./results/Ego-centric Videos/building_blocks/inputs_2.txt")
         elif self.task == "blocks_3":
-            self.get_inst("/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/instructions_3.txt", "/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/inputs_3.txt")
+            self.get_inst("./results/Ego-centric Videos/building_blocks/instructions_3.txt", "./results/Ego-centric Videos/building_blocks/inputs_3.txt")
         elif self.task == "multimeter":
-            self.get_inst("/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/multimeter/instructions.txt", "/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/multimeter/inputs.txt")
+            self.get_inst("./results/Ego-centric Videos/multimeter/instructions.txt", "./results/Ego-centric Videos/multimeter/inputs.txt")
         
         self.current_instruction = self.instructions[0]
         

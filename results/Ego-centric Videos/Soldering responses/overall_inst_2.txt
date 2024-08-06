@@ -1,0 +1,10 @@
+1. Adjust the temperature on the soldering station to the appropriate setting for the components you are working with.
+2. Unspool solder wire and place a circuit board on a holder in preparation for soldering.
+3. Use a soldering iron to desolder components from the circuit board by heating and removing the solder with a desoldering pump.
+4. Bend the leads of components with a tool before inserting them onto a prototyping board.
+5. Heat up the soldering iron and solder components onto the circuit board by applying heat and solder to create electrical connections.
+6. Inspect the soldered connections on the board after finishing soldering the components.
+7. Tin the wires of through-hole pin headers with solder before attaching them to the prototyping board using a soldering iron.
+8. Secure wire leads onto the prototyping board by applying heat and solder to create connections.
+9. Work on soldering or making adjustments to components on a perforated circuit board using a soldering iron.
+10. Insert wire components through the holes of the circuit board before flipping it over and soldering the components in place.

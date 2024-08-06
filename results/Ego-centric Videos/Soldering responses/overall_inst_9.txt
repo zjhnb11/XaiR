@@ -1,0 +1,14 @@
+1. Turn on the Weller soldering station and set the temperature to the desired level (e.g. 323°F).
+2. Bend the leads of electronic components to fit onto a circuit board.
+3. Thread solder wire through the holes of a perfboard.
+4. Cut and straighten a length of soldering wire from a spool.
+5. Solder electronic components onto the perfboard using a soldering iron.
+6. Solder wires onto specific points on the circuit board.
+7. Insert pins into the protoboard and solder in place.
+8. Solder a wire onto the prototyping PCB.
+9. Solder pins onto the prototyping board for connections.
+10. Solder a capacitor onto the prototyping board, trimming leads beforehand.
+11. Continuously adjust and solder components onto the circuit board.
+12. Desolder a component from the circuit board using a soldering iron.
+13. Use fume extraction equipment when soldering to remove harmful vapors.
+14. Carefully position components on the circuit board and solder in place.

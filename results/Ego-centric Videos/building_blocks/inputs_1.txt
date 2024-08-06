@@ -1,0 +1,5 @@
+red cylindrical block
+blue cylindrical block
+red triangular block
+green taller cylinder
+yellow hemisphere block

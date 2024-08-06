@@ -33,8 +33,8 @@ def create_question_content(prompt, views):
     temp = dict()
     for view in views:
         cv2.imwrite("temp.png", cv2.cvtColor(view, cv2.COLOR_RGB2BGR))
-        temp["type"] = "image"
-        temp["image"] = encode_image_to_base64("temp.png")
+        temp["type"] = "image_url"
+        temp["image_url"] = { "url": f"data:image/jpeg;base64,{encode_image_to_base64('temp.png')}"}
         content_list.append(temp.copy())
 
     text = dict()
@@ -48,9 +48,10 @@ def create_question_content(prompt, views):
 def ask_gpt(prompt, views):
     content = create_question_content(prompt, views)
     client = OpenAI(api_key=API_KEY)
+    print("here in gpt")
 
     response = client.chat.completions.create(
-        model="gpt-4-vision-preview",
+        model="gpt-4o",
         messages=[
             {
                 "role": "user",
@@ -60,6 +61,7 @@ def ask_gpt(prompt, views):
         max_tokens=3500,
     )
     response = response.choices[0]
+    print(response.message.content)
     return response.message.content
 
 

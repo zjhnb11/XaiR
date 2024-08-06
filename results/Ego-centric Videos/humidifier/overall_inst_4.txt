@@ -1,0 +1,12 @@
+1. "The person takes a humidifier out of the box."
+2. "They plug in the humidifier."
+3. "They fill the water tank with water."
+4. "They attach the water tank to the humidifier."
+5. "They turn on the power switch."
+
+Instructions:
+1. Take the humidifier out of the box.
+2. Plug in the humidifier.
+3. Fill the water tank with water.
+4. Attach the water tank to the humidifier.
+5. Turn on the power switch.

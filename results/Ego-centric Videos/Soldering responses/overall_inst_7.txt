@@ -1,0 +1,18 @@
+1. Adjust the temperature settings on the soldering station to the desired value for the soldering task. 
+2. Prepare a component with solder by applying solder wire to the leads of the component.
+3. Solder pins to a green, rectangular printed circuit board by sequentially applying solder wire to each pin and heating it with a soldering iron to create solder joints.
+4. Desolder or solder components on a green perforated circuit board by adjusting and trimming components, then using a soldering station to attach or detach parts.
+5. Prepare a component lead for soldering onto a printed circuit board by cutting the lead, straightening it out, and inserting it through the holes in the PCB.
+6. Connect components to a green perforated circuit board by using a soldering iron to apply solder to the board and attaching components.
+7. Solder electronic components onto a perforated circuit board by carefully applying solder to secure the component in place.
+8. Solder wire to a perforated prototype circuit board by heating the wire with a soldering iron to attach it to the metallic pads on the board.
+9. Apply solder to a perforated circuit board for an electronics project requiring components to be soldered onto the board for electrical connections.
+10. Solder components onto a circuit board at a workstation equipped with soldering tools, progressing from positioning a component to soldering it in place.
+11. Trim a lead and solder components onto a perforated circuit board by using a soldering iron to apply solder, connecting the leads of a component to the board's metal pads.
+12. Solder components onto a perforated circuit board, securing the components in place by carefully applying solder.
+13. Tin a prototyping circuit board, place and solder components onto the board with a soldering iron.
+14. Adjust the temperature on a soldering station, checking the workspace for other equipment or considering the next step in the soldering task.
+15. Prepare a white wire by twisting its strands and solder components onto a perforated green circuit board using soldering tools.
+16. Solder a component onto a perforated circuit board by heating the wire leads with a soldering iron to attach them securely.
+17. Prepare solder, apply it to the board, and adjust components as needed while soldering components onto a circuit board.
+18. Hold a green circuit board and manipulate wires connected to it, possibly engaging in electronics work such as soldering or testing connections.

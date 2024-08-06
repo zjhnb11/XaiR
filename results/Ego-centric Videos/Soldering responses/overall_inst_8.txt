@@ -1,0 +1,18 @@
+1. Turn on Weller soldering station and adjust temperature settings for desired heat level.
+2. Thread solder wire through green solder wick dispenser and soldering iron stand.
+3. Desolder components from circuit board using soldering iron.
+4. Thread solder wire through desoldering pump and position components on perforated board.
+5. Apply solder to circuit board with holes using soldering iron.
+6. Solder component wire onto perforated circuit board with soldering iron.
+7. Solder pins onto perforated circuit board for electronic connections.
+8. Place resistors onto perforated circuit board and secure with solder.
+9. Insert electronic components into perforated circuit board for soldering.
+10. Bend resistor leads, position on board, and secure connections with soldering iron.
+11. Tin or solder surface of perforated circuit board with soldering iron.
+12. Solder wires to perforated prototyping board using soldering iron.
+13. Attach resistor to perforated circuit board to create or repair electronic circuit.
+14. Use hot air rework station and adjust temperature on soldering station for soldering or desoldering electronic components.
+15. Strip, tin, and attach wire to circuit board using soldering iron and solder.
+16. Grip soldering iron and prepare to solder components onto circuit board.
+17. Methodically place and solder components onto perforated circuit board, following specific electronic design or circuit.
+18. Adjust wire position multiple times to ensure proper connection when soldering onto circuit board.

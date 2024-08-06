@@ -1,0 +1,16 @@
+1. A person is taking a humidifier out of its box.
+2. The person is reading the instructions manual.
+3. The person is filling the water tank of the humidifier.
+4. The person is plugging in the humidifier.
+5. The person is adjusting the settings on the humidifier.
+6. The person is turning on the humidifier.
+7. The person is placing the humidifier in a desired location.
+
+Instructions:
+1. Remove humidifier from box.
+2. Read instructions manual carefully.
+3. Fill water tank with water.
+4. Plug in humidifier to power source.
+5. Adjust settings on humidifier as needed.
+6. Turn on humidifier.
+7. Place humidifier in desired location for maximum effect.

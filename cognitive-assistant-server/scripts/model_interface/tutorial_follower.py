@@ -29,16 +29,17 @@ class TutorialFollower:
 
     def start(self):
         if self.task == "humidifier":
-            self.get_inst("/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/humidifier/ground_truth.txt","/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/humidifier/ground_truth_inputs.txt")
+            self.get_inst("./results/Ego-centric Videos/humidifier/ground_truth.txt","./results/Ego-centric Videos/humidifier/ground_truth_inputs.txt")
         elif self.task == "blocks_1":
-            self.get_inst("/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/instructions_1.txt", "/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/inputs_1.txt")
+            self.get_inst("./results/Ego-centric Videos/building_blocks/instructions_1.txt", "/./results/Ego-centric Videos/building_blocks/inputs_1.txt")
         elif self.task == "blocks_2":
-            self.get_inst("/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/instructions_2.txt", "/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/inputs_2.txt")
+            self.get_inst("./results/Ego-centric Videos/building_blocks/instructions_2.txt", "./results/Ego-centric Videos/building_blocks/inputs_2.txt")
         elif self.task == "blocks_3":
-            self.get_inst("/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/instructions_3.txt", "/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/building_blocks/inputs_3.txt")
+            self.get_inst("./results/Ego-centric Videos/building_blocks/instructions_3.txt", "./results/Ego-centric Videos/building_blocks/inputs_3.txt")
         elif self.task == "multimeter":
-            self.get_inst("/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/multimeter/instructions.txt", "/home/ssrinidh/Sruti/cognitive-assistant/results/Ego-centric Videos/multimeter/inputs.txt")
-        
+            self.get_inst("./results/Ego-centric Videos/multimeter/instructions.txt", "./results/Ego-centric Videos/multimeter/inputs.txt")
+
+            
         self.current_instruction = self.instructions[0]
         self.tutorial_instruction_processing.start()
 
@@ -51,14 +52,12 @@ class TutorialFollower:
                 for frame in latest_frames:
                     frame_img.append(np.asarray(frame.img))
                     
-
                 gpt_prompt = "I am currently trying to do the instruction: " + self.current_instruction + "\n Have I done the instruction? I am giving you a frame showing the current state of my environment from an ego-centric view. Does it look like the instruction may have been done? If there is any chance it might be done, say true. Be linient in your responses. Answer just True or False. If false, tell me what I am missing. If unsure, say 'true'. Remember right is left and left is right (the image is mirrored). Here is the complete list of instructions: " + str(self.instructions)
                 ferret_prompt = "Find the following object for me. Give me an answer as a comma separated list with the format: object name = <co-ordinates>, object name:<co-ordinates>. If you cannot find a certain object with confidence, replace its coordinates with None. Do not give me more coordinates than I have asked for. Only give me coordinated for the objects I asked. The objects are: " + str(self.inst_inputs[self.current_instruction_index])
                 try:
                     gpt_answer, response = ask_spatial_llm(ferret_prompt, gpt_prompt,frame_img[-1], frame_img)
                 except:
                     continue
-                print("Ferret response = " + response)
                 self.answer = str(last_frameID)+ "///" + self.current_instruction + '\n Current instruction state: ' + gpt_answer + response
                 self.prev_instruction_index =  self.current_instruction_index
                 for line in gpt_answer.splitlines():

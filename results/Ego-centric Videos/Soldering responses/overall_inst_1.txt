@@ -1,0 +1,11 @@
+1. Turn on and adjust the temperature of the soldering station to the desired setting.
+2. Wait for the soldering iron to heat up to the set temperature.
+3. Prepare the electronic components by adjusting, straightening, and positioning them on a perforated circuit board or proto-board.
+4. Solder the components by applying solder to the pins of the components on the board.
+5. Clean the soldering iron on a sponge as needed.
+6. Trim excess leads after soldering components onto the board.
+7. Tin the soldering iron tip and create electrical connections by applying solder to the board.
+8. Affix wires to the board by preparing them, positioning them correctly, and soldering them to create electrical connections.
+9. Continue soldering components onto the board using a soldering iron, attaching leads to designated holes for electrical connections.
+10. Repeat the soldering process as needed, adjusting wires and components as necessary.
+11. Conduct the soldering tasks for electronics repair or assembly in a well-equipped electronics workspace.

@@ -1,0 +1,7 @@
+1. Hold the multimeter in your hand.
+2. Take the red cable and connect it to the right most port of the multimeter
+3. Connect the black cable to the second port from the right of the multimeter.
+4. Turn the multimeter on by pushing the green power button. You should see the display turn on.
+5. Turn the dial on the multimeter to the ohm symbol.
+6. Take the resistor and connect one side of it to the red cable and the other side to the black cable.
+7. The number on the display shows the resistance of the resistor.

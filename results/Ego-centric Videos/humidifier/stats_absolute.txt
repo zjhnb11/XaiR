@@ -1,0 +1,11 @@
+File 0 = {'correct': 3.8, 'wrong': 0.5, 'extra': 0.9}
+File 1 = {'correct': 3.5, 'wrong': 0.0, 'extra': 3.5}
+File 2 = {'correct': 3.1, 'wrong': 0.6, 'extra': 1.6}
+File 3 = {'correct': 3.1, 'wrong': 0.1, 'extra': 2.8}
+File 4 = {'correct': 3.0, 'wrong': 1.0, 'extra': 1.0}
+File 5 = {'correct': 3.0, 'wrong': 0.0, 'extra': 1.7}
+File 6 = {'correct': 3.4, 'wrong': 1.3, 'extra': 0.5}
+File 7 = {'correct': 3.0, 'wrong': 0.0, 'extra': 4.0}
+File 8 = {'correct': 4.2, 'wrong': 0.2, 'extra': 1.5}
+File 9 = {'correct': 3.6, 'wrong': 0.1, 'extra': 3.3}
+Overall average counts = {'correct': 3.3699999999999997, 'wrong': 0.38, 'extra': 2.08}

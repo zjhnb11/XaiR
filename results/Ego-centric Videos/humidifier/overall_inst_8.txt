@@ -1,0 +1,14 @@
+1. "A person is unpacking a humidifier from its box."
+2. "The person is filling the water tank of the humidifier."
+3. "They are placing the filled water tank back into the humidifier."
+4. "The person is plugging in the humidifier."
+5. "They are turning on the power switch of the humidifier."
+6. "The humidifier is emitting mist into the air."
+
+Instructions:
+1. Unpack the humidifier from its box.
+2. Fill the water tank of the humidifier with water.
+3. Place the filled water tank back into the humidifier.
+4. Plug in the humidifier.
+5. Turn on the power switch of the humidifier.
+6. Enjoy the mist emitted by the humidifier.

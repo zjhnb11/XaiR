@@ -1,0 +1,105 @@
+{
+    "0": {},
+    "1": {
+        "1712954036.3764791": {
+            "poseID": 10,
+            "sceneDescription": "A person is adjusting the temperature control knob on a soldering station. The LED display on the station changes to show the temperature increase from 'LO' to 323\u00b0C."
+        },
+        "1712954051.5268352": {
+            "poseID": 20,
+            "sceneDescription": "In this segment of the video, a person is adjusting the temperature setting on a Weller soldering station. The digital display shows the temperature incrementally decreasing from 373\u00b0F to 243\u00b0F."
+        },
+        "1712954064.4545054": {
+            "poseID": 30,
+            "sceneDescription": "The temperature on the soldering station's digital display is increasing steadily, indicating that the soldering iron is heating up. There are no significant changes in the workstation's layout or equipment use within the frames provided."
+        },
+        "1712954078.436588": {
+            "poseID": 40,
+            "sceneDescription": "The person is using a soldering station to solder components onto a green circuit board. Over the span of these frames, they pick up a component with tweezers, apply solder to it, and then proceed to attach it to the board."
+        },
+        "1712954096.9581735": {
+            "poseID": 50,
+            "sceneDescription": "In this series of frames, the person is preparing to solder by unspooling solder wire and placing a perforated circuit board on a holder. They align the solder wire with the joint they intend to solder on the circuit board."
+        },
+        "1712954110.6696718": {
+            "poseID": 60,
+            "sceneDescription": "In this sequence of images, the person is using a soldering iron to desolder a component from a green circuit board. After the component is removed, the individual examines it and the space on the board where it was attached."
+        },
+        "1712954122.2228286": {
+            "poseID": 70,
+            "sceneDescription": "In this segment of the video, a person is preparing a component with leads by bending them with a tool and then inserting the component onto a prototyping board (breadboard). They are working at an electronics soldering station equipped with tools for electronic assembly."
+        },
+        "1712954136.2825003": {
+            "poseID": 80,
+            "sceneDescription": "In this segment, a person is using a soldering iron to heat and remove solder from a green circuit board with through-hole components. They use a desoldering pump to suction away the melted solder, thus freeing the components from the circuit board."
+        },
+        "1712954147.9550624": {
+            "poseID": 90,
+            "sceneDescription": "In this series of frames, a person is using a soldering iron to solder a lead onto a corner of a perforated grid or pinboard, likely in the process of constructing an electronic circuit. The soldering iron tip is applied to the board to heat the joint, allowing the solder to flow and make a solid connection."
+        },
+        "1712954158.917914": {
+            "poseID": 100,
+            "sceneDescription": "In this segment, a person is soldering components onto a perforated circuit board using a soldering iron. They are attaching a metallic component, possibly a pin header or wire, to the board by applying solder to secure it in place."
+        },
+        "1712954169.260619": {
+            "poseID": 110,
+            "sceneDescription": "In this video segment, someone is soldering components onto a perforated circuit board, and after finishing, they inspect the soldered connections. The setting appears to be an electronics workshop or lab, with soldering equipment and extraction fans visible in the background."
+        },
+        "1712954182.1375701": {
+            "poseID": 120,
+            "sceneDescription": "In this video segment, a person appears to be working on an electronics project, using a soldering station to attach components to a circuit board. Each frame shows the individual progressively soldering the legs of an electronic component, likely an integrated circuit (IC), to the pads of the board."
+        },
+        "1712954196.1810575": {
+            "poseID": 130,
+            "sceneDescription": "A person is preparing electronic components for insertion into a prototyping breadboard. They are bending the leads of the components and inserting them into the breadboard in an organized manner."
+        },
+        "1712954378.0111537": {
+            "poseID": 140,
+            "sceneDescription": "In this segment, the person is preparing a through-hole pin header by tinning the wires with solder and attaching them to a perforated prototyping board. They are using a soldering iron to apply solder to each pin, securing the header to the board for an electronics project."
+        },
+        "1712954389.6129322": {
+            "poseID": 150,
+            "sceneDescription": "In these images, a person appears to be soldering components onto a perforated green circuit board using a soldering iron. Throughout the frames, the soldering tip makes contact with the metallic pads on the board as the individual secures components in place."
+        },
+        "1712954400.6178808": {
+            "poseID": 160,
+            "sceneDescription": "In this segment of the video, someone is using a soldering iron on a perforated circuit board, likely soldering components onto it or reheating the solder to make adjustments. The work area shows some electronic components and wiring, indicating electronics assembly or repair work is being carried out."
+        },
+        "1712954414.0224066": {
+            "poseID": 170,
+            "sceneDescription": "A person is soldering wires onto a perforated prototyping circuit board using a soldering iron. In the process, they are attaching individual wire leads to create connections on the board."
+        },
+        "1712954426.1619675": {
+            "poseID": 180,
+            "sceneDescription": "In this segment, the individual appears to be soldering components onto a perforated prototyping board using a soldering iron. They are securing a wire to the board by applying heat and solder to create an electrical connection."
+        },
+        "1712954439.3332908": {
+            "poseID": 190,
+            "sceneDescription": "In this segment of video, the person is using soldering equipment to work on an electronics project. They adjust the settings on a soldering station, then proceed to solder or work on a circuit component."
+        },
+        "1712954453.9929519": {
+            "poseID": 200,
+            "sceneDescription": "A person is bending and inserting a wire component through the holes of a green perforated circuit board, then flips it over to solder the component in place. The workspace is set up for electronics soldering, with tools such as soldering irons, wire, and a soldering station visible."
+        },
+        "1712954481.4526916": {
+            "poseID": 210,
+            "sceneDescription": "In this segment of video, a person is preparing to solder by tinning the tip of the soldering iron and then applies solder to the pins of a component on a perforated circuit board. The individual works in an organized electronics lab environment, demonstrating proper soldering techniques."
+        },
+        "1712954497.362447": {
+            "poseID": 220,
+            "sceneDescription": "In the segment of the video represented by these frames, someone is soldering a component onto a perforated circuit board. They apply solder with a soldering iron to secure the component's legs to the board."
+        },
+        "1712954508.5711808": {
+            "poseID": 230,
+            "sceneDescription": "In the segment of the video represented by these frames, a person appears to be in the process of soldering or preparing to solder components onto a perforated circuit board. The soldering iron and wire are manipulated, positioning the wire on the circuit board for soldering."
+        },
+        "1712954519.6179395": {
+            "poseID": 240,
+            "sceneDescription": "In this sequence of images, a person is assembling an electronic circuit by inserting components into a prototyping breadboard and using a soldering iron to solder them in place. The person appears to be methodically adding electronic parts to a circuit, demonstrating the process of electronics prototyping or repair."
+        },
+        "1712954531.230393": {
+            "poseID": 250,
+            "sceneDescription": "In the series of frames, a person is using a soldering iron to solder components onto a green circuit board. The workstation is equipped with various electronics tools, including a solder fume extractor, magnifying lamp, and soldering station."
+        }
+    }
+}

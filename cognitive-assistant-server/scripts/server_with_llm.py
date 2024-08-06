@@ -47,7 +47,6 @@ audio_relay = MediaRelay()
 
 
 data_collector = DataCollector(MAX_IMAGES)
-# history = HistoryLogger(data_collector)
 ferret_gpt = FerretGPTQuerier(data_collector)
 
 
@@ -57,55 +56,6 @@ datachannels = {}
 frameID = None
 sessionId = 0
 
-
-# def scene_description_background_processing():
-#     global latest_frames_queue, history
-#     video_frames = []
-#     frame_count = 0
-#     first_frame = None
-#     while True:
-#         print("history =  ", history.session_started)
-#         if history.session_started:
-#             frame_to_process = None
-
-#             if not latest_frames_queue.empty():
-#                 for i in range(min(10,len(latest_frames_queue.queue))):
-#                     frame_to_process = latest_frames_queue.queue[0] # just get the first frame
-#                     latest_frames_queue.queue.popleft()
-#                     if (frame_to_process.frameID >= history.startFrame) and ((history.endFrame == None) or (frame_to_process.frameID <= history.endFrame)):
-#                         if frame_to_process is not None:
-
-#                             if frame_count == 0:
-#                                 first_frame = frame_to_process
-#                             frame_to_give_llm = frame_to_process.img
-#                             video_frames.append(np.asarray(frame_to_give_llm))
-#                             frame_count += 1
-#                         if frame_count == 10:
-#                             question_to_ask = \
-#                                 'You are a helpful AI assistant to a human. ' + \
-#                                 'For context, the images are of the space around me, as taken from a head mounted camera. ' + \
-#                                 'Give your answer in just one sentence, as conscise as possible. ' + \
-#                                 'This is a series of frames from a segment of a video where each frame is one second apart. Can you tell me what is happening in this segment of a video? Give me a two sentence summary'
-#                             #'After answering the question in a sentence, tell me which image contains the object described in the question? Just give me the image number, and if the object is not present, say "not present"' + \
-#                             #The overall video is about how to use a humidifier.
-#                             start = time.time()
-#                             response = ask_gpt(question_to_ask, video_frames)
-#                             history.add_scene_description(first_frame.timestamp, first_frame.frameID, response)
-#                             end = time.time()
-#                             print('Time taken for LLM response: ', end - start, ' seconds')
-#                             print('\n===\nScene Description:\n', response, '\n===\n')
-#                             video_frames = []
-#                             frame_count = 0
-#                     elif ((history.endFrame != None) and (frame_to_process.frameID > history.endFrame)):
-#                         history.session_finish_processing()
-#                         break
-
-#         elif (not pending_questions_queue.empty()) or (history.session_started):
-#             latest_frames_queue.queue.clear()
-#         time.sleep(6)
-
-
-#############################################################################################################################
 
 
 class WebRTCSource(sr.AudioSource):

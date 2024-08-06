@@ -1,0 +1,21 @@
+{
+    "0": {},
+    "1": {
+        "1713309580.2689817": {
+            "poseID": 10,
+            "sceneDescription": "In this video segment, a person is seen placing a white paper plate on a wooden table and then positioning two forks beside it, first one by one and then adjusting their position to be parallel and next to each other. The action appears to be setting the table for a meal."
+        },
+        "1713309592.5420067": {
+            "poseID": 20,
+            "sceneDescription": "In this sequence of images, a person is methodically placing cutlery on a table one item at a time. Each frame shows the individual adding a fork, a spoon, and a knife in sequence, suggesting they are setting the table for a meal."
+        },
+        "1713309606.3983445": {
+            "poseID": 30,
+            "sceneDescription": "In this sequence of images, a person is adjusting the position of a plate and cutlery on a table, starting with their right hand moving a knife and ending with their left hand evening out the spacing between the utensils. They are setting the table, likely preparing for a meal."
+        },
+        "1713309617.9221478": {
+            "poseID": 37,
+            "sceneDescription": "In this sequence of images, a person is sitting down in front of a place setting at a table, and then they appear to begin standing up, moving away from the table. The sequence shows the perspective changing from being directly in front of the plate to a higher angle, indicating the person's movement."
+        }
+    }
+}

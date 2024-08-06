@@ -1,0 +1,19 @@
+1. Turn on and set the temperature of the soldering station.
+2. Adjust the temperature setting on the soldering station multiple times.
+3. Allow the soldering iron to heat up to the desired temperature.
+4. Assemble and solder electronic components on a PCB.
+5. Position solder wire on the pins of through-hole electronic components on a perforated prototype PCB board.
+6. Remove components from a green circuit board using a soldering iron.
+7. Straighten the leads of electronic components before soldering them into the prototyping board.
+8. Apply heat using a soldering iron to solder pins onto a circuit board.
+9. Solder components onto a perforated circuit board using solder wire.
+10. Solder wires onto a perfboard, place components, and inspect the work.
+11. Use a soldering station with a hot air rework tool and a soldering iron to work on electronic components.
+12. Tin a wire by straightening it and coating one end with solder for later soldering applications.
+13. Solder components by aligning and inserting their leads through the holes of a prototyping circuit board.
+14. Adjust the temperature on the soldering station, prepare a wire, and solder components onto a protoboard.
+15. Trim excess wire with wire cutters after soldering components onto a circuit board.
+16. Prepare a soldering workstation, strip and tin wires to connect them to a prototype PCB.
+17. Manually solder components onto a prototyping circuit board using a soldering iron.
+18. Hold and position electronic components on a soldering workstation while preparing to solder.
+19. Solder components onto a perforated circuit board, including attaching a wire.

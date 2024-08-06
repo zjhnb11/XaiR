@@ -1,0 +1,11 @@
+1. Turn on and adjust the temperature of the soldering station.
+2. Wait for the soldering iron to get to the desired temperature.
+3. Break two header pins from a group of pins and insert them into a PCB board.
+4. Unwrap some of the solder wire.
+5. Wipe the soldering iron on a sponge pads
+6. Apply solder on the PCB by touching the soldering iron and solder wire together.
+7. Wipe the soldering iron on the sponge pad again before placing it back in its place.
+7. Then take two more pins and attach it to the other end of the PCB.
+8. Solder these componenets as well.
+9. Inspect the pins that have been soldered into the PCB.
+10. Connect two wires between the pins.

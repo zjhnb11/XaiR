@@ -23,7 +23,7 @@ def encode_image_to_base64(img):
 def gen_ferret_prompt(prompt):
     return input_prompt + "\n" + prompt + " ASSISTANT:"
 
-def ask_ferret(prompt, img, model_name="ferret-13b-v1-3", temperature=0.2, top_p=0.7, max_new_tokens=512, stop_token="</s>"):
+def ask_ferret(prompt, img, model_name="ferret-7b-v1-3", temperature=0.2, top_p=0.7, max_new_tokens=512, stop_token="</s>"):
     pload = {
         "model": model_name,
         "prompt": gen_ferret_prompt(prompt),
@@ -38,6 +38,7 @@ def ask_ferret(prompt, img, model_name="ferret-13b-v1-3", temperature=0.2, top_p
         # Stream output
         response = requests.post(worker_addr + "/worker_generate_stream",
             headers=headers, json=pload, stream=True, timeout=10)
+        print("response = ", response)
         for chunk in response.iter_lines(decode_unicode=False, delimiter=b"\0"):
             if chunk:
                 data = json.loads(chunk.decode())

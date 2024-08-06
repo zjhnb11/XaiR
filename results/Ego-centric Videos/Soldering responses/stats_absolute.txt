@@ -1,0 +1,10 @@
+File 0 = {'correct': 3.2, 'wrong': 6.1, 'extra': 8.7}
+File 1 = {'correct': 5.1, 'wrong': 1.9, 'extra': 4.0}
+File 2 = {'correct': 2.6, 'wrong': 5.5, 'extra': 1.9}
+File 3 = {'correct': 4.2, 'wrong': 4.5, 'extra': 9.3}
+File 4 = {'correct': 3.3, 'wrong': 5.1, 'extra': 11.6}
+File 5 = {'correct': 4.3, 'wrong': 6.9, 'extra': 11.5}
+File 6 = {'correct': 4.4, 'wrong': 3.7, 'extra': 10.9}
+File 7 = {'correct': 1.8, 'wrong': 6.6, 'extra': 9.6}
+File 8 = {'correct': 2.6, 'wrong': 8.3, 'extra': 7.1}
+File 9 = {'correct': 4.4, 'wrong': 3.7, 'extra': 9.8}

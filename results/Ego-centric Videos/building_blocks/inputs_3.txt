@@ -1,0 +1,5 @@
+long blue cylinder
+long yellow cylinder
+thin red block
+thin orange block
+blue arch like piece

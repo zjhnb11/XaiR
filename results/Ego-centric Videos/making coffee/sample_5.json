@@ -1,0 +1,73 @@
+{
+    "0": {},
+    "1": {
+        "1713206623.0192535": {
+            "poseID": 10,
+            "sceneDescription": "In this segment of the video, the person wearing the camera is operating a coffee grinder; after adjusting the settings, they remove the lid to check the coffee beans. Subsequently, they replace the lid, preparing to grind the coffee."
+        },
+        "1713206637.3123395": {
+            "poseID": 20,
+            "sceneDescription": "A person is operating an espresso machine, first using a grinder to grind coffee beans and then tamping down the grounds in the portafilter. They then insert the portafilter into the espresso machine to brew a shot of espresso."
+        },
+        "1713206648.17836": {
+            "poseID": 30,
+            "sceneDescription": "In this sequence, someone is using an espresso machine to grind coffee beans and prepare an espresso shot. They first grind the beans into the portafilter, then tamp the grounds, and finally attach the portafilter to the machine to brew the espresso."
+        },
+        "1713206660.8844538": {
+            "poseID": 40,
+            "sceneDescription": "In this sequence of images, a person is using a coffee grinder to grind coffee beans into a portafilter and then tamping the ground coffee to prepare it for brewing. The images show the steps involved in making espresso, including grinding, dosing, and tamping the coffee grounds before they are placed into an espresso machine."
+        },
+        "1713206673.9206927": {
+            "poseID": 50,
+            "sceneDescription": "In the series of frames, a person is tamping ground coffee in a portafilter and preparing to attach it to an espresso machine to pull a shot. The individual is performing the steps involved in making an espresso, which includes grinding coffee, dosing, tamping, and then attaching the portafilter to the espresso machine."
+        },
+        "1713206687.9839897": {
+            "poseID": 60,
+            "sceneDescription": "In this sequence of images, a person is inserting a portafilter into an espresso machine, and the digital readout on the machine increases significantly, indicating that they are probably engaging the brewing process and the machine is registering the pressure of the water being forced through the coffee grounds. The sequence captures the initial steps of espresso extraction, with the portafilter being locked in place before brewing commences."
+        },
+        "1713206703.9171648": {
+            "poseID": 70,
+            "sceneDescription": "In this segment, a person is preparing a cup of coffee using an espresso machine. They select a single cup from a stack, place it under the dispenser, and then proceed to pull the lever to extract the coffee into the cup."
+        },
+        "1713206716.11088": {
+            "poseID": 80,
+            "sceneDescription": "The images show a person using an espresso machine to make a coffee, as they interact with the machine's controls and a cup is placed below the dispenser. The sequence demonstrates the brewing process, from engaging the machine to the coffee being dispensed."
+        },
+        "1713206731.5786064": {
+            "poseID": 90,
+            "sceneDescription": "In this segment of the video, an espresso shot is being pulled from a professional espresso machine, as evidenced by the increasing timer on the display and the changing level of liquid in the cup. The machine is extracting coffee into a paper cup, which appears fuller with each successive frame, indicating the shot is progressing normally."
+        },
+        "1713206760.1441467": {
+            "poseID": 100,
+            "sceneDescription": "In this series of frames, someone is preparing a beverage, likely espresso, with an espresso machine and then starts the flow of coffee into a paper cup. During the process, the digital display on the machine indicates a progression of time in seconds, counting upward as the espresso is being made."
+        },
+        "1713206772.6618052": {
+            "poseID": 110,
+            "sceneDescription": "In this sequence of images, a person is making an espresso shot using a coffee machine. They are pulling the lever to brew the coffee into a cup and then removing the spent coffee puck from the portafilter."
+        },
+        "1713206787.8422818": {
+            "poseID": 120,
+            "sceneDescription": "The person is operating an espresso machine: they lock a porta-filter with coffee into the machine, run it to brew espresso, and then move to the sink to clean the porta-filter. The sequence shows the process of making an espresso shot and the subsequent cleaning of the equipment."
+        },
+        "1713206798.43559": {
+            "poseID": 130,
+            "sceneDescription": "In this video segment, someone is using a sink to wash something small and metallic, likely an espresso portafilter, under running water. After rinsing the item, they glance briefly at the posted notices by the sink."
+        },
+        "1713206815.3881006": {
+            "poseID": 140,
+            "sceneDescription": "In this sequence of frames, an individual is pulling a paper towel from a dispenser, using it to dry out a coffee portafilter, and then looking towards the coffee-making area, suggesting they are in the process of making coffee. The person is likely in a cafe or a place with a coffee station, engaging in routine cleaning and preparation activities before making a coffee beverage."
+        },
+        "1713206830.242499": {
+            "poseID": 150,
+            "sceneDescription": "In this sequence of images, a person is preparing an espresso using a professional espresso machine and grinder. The person doses and tamps the ground coffee into a portafilter, attaches it to the espresso machine, and starts the brew process, resulting in a cup of espresso."
+        },
+        "1713206846.0881531": {
+            "poseID": 160,
+            "sceneDescription": "In this series of images, the person is cleaning up after making coffee, wiping up spills, discarding used items, acquiring additional food from a table with pizza and salad, and then returning to the original area to drink the coffee. The individual is tidying a communal space and appears to be partaking in a shared meal or a casual gathering area, showing a sequence of cleaning and collecting food."
+        },
+        "1713206856.2232873": {
+            "poseID": 164,
+            "sceneDescription": "In the series of images, a person is sitting at a table with food containers and a cup of tea or coffee, and between the first and subsequent frames, they lower the cup onto the table. The scene suggests the person may have just finished drinking and is placing the cup down while at a casual gathering or meal with pizza and salad available on the table."
+        }
+    }
+}

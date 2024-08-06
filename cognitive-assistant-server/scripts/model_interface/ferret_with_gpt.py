@@ -62,8 +62,7 @@ def ask_spatial_llm(prompt_ferret, prompt_gpt, image, views):
 
         boxes = ferret_result[0]
         ferret_answer = ferret_result[1]
-
-        print("Box = ", boxes)
+        
         if len(boxes) <= 0:
             return gpt_answer
         

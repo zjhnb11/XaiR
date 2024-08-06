@@ -101,9 +101,6 @@ def scene_description_background_processing():
                     elif ((history.endFrame != None) and (frame_to_process.frameID > history.endFrame)):
                         history.session_finish_processing()
                         break
-
-        elif (not pending_questions_queue.empty()) or (history.session_started):
-            latest_frames_queue.queue.clear()
         time.sleep(6)
 
 
@@ -227,8 +224,6 @@ def process_user_speech_thread(source: sr.AudioSource, model_name="small", recor
                         history.stop(frameID)
                         print("stopped recording")
                         sessionId += 1
-                    elif (("start" in line) and ("tutorial" in line)):
-                        tutorial_follower.start()
                     else:
                         question_to_ask = Question(line)
                         data_collector.add_question(question_to_ask)
@@ -252,22 +247,11 @@ class AudioTransformTrack(MediaStreamTrack):
 
     async def recv(self):
 
-        if tutorial_follower.get_answer() is not None:
-            response = tutorial_follower.get_answer()
-            datachannels[LLM_OUTPUT_DC_LABEL].send(response)
-            tutorial_follower.clear_answer()
-            ferret_gpt.clear_answer()
-
-            print(f'Answer from LLM assistant: \"{response}\"')
-            # print('Time taken:', response.time_taken, 'seconds')
-        elif ferret_gpt.get_answer() is not None:
+        if ferret_gpt.get_answer() is not None:
             response = ferret_gpt.get_answer()
             datachannels[LLM_OUTPUT_DC_LABEL].send(response.text)
             ferret_gpt.clear_answer()
 
-            # print(f'Answer from LLM assistant: \"{response.text}\"')
-            # print('Time taken:', response.time_taken, 'seconds')
-        
         
 
             
@@ -284,7 +268,6 @@ class AudioTransformTrack(MediaStreamTrack):
 
 async def receiveImage(request):
     global frameID
-    # logger.info("trying to read")
     request.auto_decompress = False
     image = b''
     while True:
@@ -292,15 +275,11 @@ async def receiveImage(request):
         if not chunk:
             break
         image += chunk
-    logger.info(len(image))
     frameID = image[:4]
     frameID = int.from_bytes(frameID, byteorder='little')
-    logger.info(frameID)
     img = Image.frombytes('RGBA', (640,480), image[4:], 'raw')
 
     data_collector.add_frame(Frame(img, frameID))
-    img.save("test" + str(frameID)+ ".png")
-    # logger.info("got image")
 
 
 async def offer(request):
@@ -321,10 +300,6 @@ async def offer(request):
         global datachannels
         if channel.label == LLM_OUTPUT_DC_LABEL:
             datachannels[LLM_OUTPUT_DC_LABEL] = channel
-
-        # @channel.on("message")
-        # def on_message(message):
-        #     log_info("IT RECEIVESSSSSSSSSSSSSSSSSSSSSS")
 
     @pc.on('connectionstatechange')
     async def on_connectionstatechange():

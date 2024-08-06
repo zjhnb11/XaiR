@@ -1,0 +1,14 @@
+1. Person holds a soldering iron and wire.
+2. Person melts solder onto the wire with the soldering iron.
+3. Person removes excess solder with a sponge.
+4. Person solders two wires together.
+5. Person inspects the soldered joint.
+6. Person cuts off excess wire with wire cutters. 
+
+Based on the descriptions provided in the AI model, here is a concise list of instructions for soldering:
+1. Hold the soldering iron and wire in one hand.
+2. Use the soldering iron to melt solder onto the wire.
+3. Remove any excess solder with a sponge.
+4. Solder two wires together using the soldering iron.
+5. Inspect the soldered joint to ensure it is secure.
+6. Cut off any excess wire using wire cutters.

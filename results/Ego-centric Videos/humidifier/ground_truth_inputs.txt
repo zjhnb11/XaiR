@@ -1,0 +1,5 @@
+humidifier
+lid of humidifier, water
+water tank of humidifier, base of humidifier
+humidifier, plug, outlet
+humidier's buttons/controls
