@@ -52,3 +52,38 @@ In another Terminal window, run
 ```
 CUDA_VISIBLE_DEVICES=0 python -m ferret.serve.model_worker --host 0.0.0.0 --controller http://localhost:10000 --port 40000 --worker http://localhost:40000 --model-path <PATH TO FERRET MODEL> --add_region_feature
 ```
+
+Edit the ferret model name in model_interface/get_ferret_response.py
+
+# Run if you want to ask questions to the assistant:
+```
+python3 -m cognitive-assistant-server.scripts.server_with_llm --host <YOUR IP ADDRESS> --cert-file ssl/cert.pem --key-file ssl/key.pem
+```
+
+# Run if you want to record what the user is doing and get a log of actions and aotomatically generated instructions:
+```
+python3 -m cognitive-assistant-server.scripts.server_with_llm_for_instructing --host <YOUR IP ADDRESS> --cert-file ssl/cert.pem --key-file ssl/key.pem
+```
+
+# Run if you want to also follow a tutorial to do a task as well as ask questions:
+
+Edit model_interface/tutorial_follower.py to have the correct path to the instructions to follow
+
+Then, run
+
+```
+python3 -m cognitive-assistant-server.scripts.server_with_llm_for_instructing --host <YOUR IP ADDRESS> --cert-file ssl/cert.pem --key-file ssl/key.pem
+```
+
+# Run if you want to also follow a tutorial to do a task as well as ask questions to a human:
+
+Edit model_interface/tutorial_follower_human.py to have the correct path to the instructions to follow
+
+Then, run
+
+```
+python3 -m cognitive-assistant-server.scripts.server_with_llm_for_instructing_human --host <YOUR IP ADDRESS> --cert-file ssl/cert.pem --key-file ssl/key.pem
+```
+
+
+On the ML2, set the `Server Address` of the `WebRTCConnection` component to `https://<YOUR IP ADDRESS>:8000`
