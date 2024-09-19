@@ -32,6 +32,29 @@
             display: block;
             margin-bottom: 5px;
         }
+    .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: black; /* Black background */
+            border: none;
+            color: white; /* White text */
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #333; /* Darker grey on hover */
+        }
+        .abstract {
+            margin-top: 20px;
+            text-align: justify;
+        }
     </style>
 </head>
 <body>
@@ -63,6 +86,30 @@
         <div class="buttons">
             <a href="https://github.com/srutisrinidhi/XaiR" class="button">Paper</a>
             <a href="https://github.com/srutisrinidhi/XaiR" class="button">Code</a>
+        </div>
+        <div class="abstract">
+            <p>
+                This paper discusses the integration of Multimodal Large Language
+                Models (MLLMs) with Extended Reality (XR) headsets, focusing
+                on enhancing machine understanding of physical spaces. By combining
+                the contextual capabilities of MLLMs with the sensory inputs from XR,
+                there is potential for more intuitive spatial interactions. However,
+                the integration faces challenges due to the inherent limitations of MLLMs
+                in processing 3D inputs and their significant resource demands for XR
+                headsets. We introduce XaiR, a platform that facilitates integrating MLLMs
+                with XR applications. XaiR uses a split architecture that offloads complex
+                MLLM operations to a server while handling 3D world processing on the
+                headset. This setup manages multiple input modalities, parallel models,
+                and links them with real-time pose data, improving AR content placement
+                in physical scenes. We tested XaiR’s effectiveness with a “cognitive
+                assistant” application that guides users through tasks like making
+                coffee or assembling furniture. Results from a 15-participant study
+                show over 90% accuracy in task guidance and 85% accuracy in AR
+                content anchoring. Additionally, we evaluate MLLMs against human
+                operators for cognitive assistant tasks which provides insights into the
+                quality of the captured data as well as the current gap in performance
+                for cognitive assistant tasks.
+            </p>
         </div>
     </div>
 </body>
