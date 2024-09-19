@@ -12,23 +12,24 @@
             width: 80%;
             margin: auto;
         }
-        .header {
+        .header, .abstract, .image, .video {
             text-align: center;
         }
-        .authors, .pdf-container {
+        .authors {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: space-around; /* Adjusted for better spacing */
+            max-width: 720px; /* Matching subtitle width */
+            margin: auto;
         }
-        .author, .pdf-container {
-            margin-right: 20px;
+        .author {
             margin-bottom: 20px;
         }
-        .author b, .pdf-container b {
+        .author b {
             display: block;
             margin-bottom: 5px;
         }
-        .author small, .pdf-container small {
+        .author small {
             display: block;
             margin-bottom: 5px;
         }
@@ -51,9 +52,12 @@
         .button:hover {
             background-color: #333;
         }
-        .image {
-            text-align: center; /* Center the image */
-            margin-top: 20px;
+        .image img, .abstract, .video iframe {
+            width: 720px; /* Matching subtitle width */
+            max-width: 100%; /* Responsive */
+        }
+        .spacing {
+            margin-top: 40px; /* Added more vertical spacing */
         }
     </style>
 </head>
@@ -63,9 +67,7 @@
             <h1>XaiR</h1>
             <h2>An XR Platform that Integrates Large Language Models with the Physical World</h2>
         </div>
-        <br>
-        <br>
-        <div class="authors">
+        <div class="authors spacing">
             <div class="author">
                 <b>Sruti Srinidhi</b>
                 <small>Carnegie Mellon University</small>
@@ -82,17 +84,14 @@
                 <a href="mailto:agr@andrew.cmu.edu">agr@andrew.cmu.edu</a>
             </div>
         </div>
-        <div class="buttons">
+        <div class="buttons spacing">
             <a href="https://github.com/srutisrinidhi/XaiR" class="button">Paper</a>
             <a href="https://github.com/srutisrinidhi/XaiR" class="button">Code</a>
         </div>
-        <br>
-        <br>
-        <div class="image">
-            <img src="https://raw.githubusercontent.com/srutisrinidhi/XaiR/main/docs/high_level_architecture.jpg" alt="Descriptive Image Text" width="40%" />
+        <div class="image spacing">
+            <img src="https://raw.githubusercontent.com/srutisrinidhi/XaiR/main/docs/high_level_architecture.jpg" alt="Descriptive Image Text" />
         </div>
-        <br>
-        <div class="abstract">
+        <div class="abstract spacing">
             <p>
                 This paper discusses the integration of Multimodal Large Language
                 Models (MLLMs) with Extended Reality (XR) headsets, focusing
@@ -115,6 +114,9 @@
                 quality of the captured data as well as the current gap in performance
                 for cognitive assistant tasks.
             </p>
+        </div>
+        <div class="video spacing">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 </body>
