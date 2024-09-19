@@ -15,31 +15,31 @@
         .header {
             text-align: center;
         }
-        .authors {
+        .authors, .pdf-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
         }
-        .author {
+        .author, .pdf-container {
             margin-right: 20px;
             margin-bottom: 20px;
         }
-        .author b {
+        .author b, .pdf-container b {
             display: block;
             margin-bottom: 5px;
         }
-        .author small {
+        .author small, .pdf-container small {
             display: block;
             margin-bottom: 5px;
         }
-    .buttons {
+        .buttons {
             text-align: center;
             margin-top: 20px;
         }
         .button {
-            background-color: black; /* Black background */
+            background-color: black;
             border: none;
-            color: white; /* White text */
+            color: white;
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
@@ -49,11 +49,11 @@
             cursor: pointer;
         }
         .button:hover {
-            background-color: #333; /* Darker grey on hover */
+            background-color: #333;
         }
-        .abstract {
-            margin-top: 20px;
-            text-align: justify;
+        .pdf-container {
+            text-align: center;
+            width: 100%;
         }
     </style>
 </head>
@@ -63,7 +63,6 @@
             <h1>XaiR</h1>
             <h2>An XR Platform that Integrates Large Language Models with the Physical World</h2>
         </div>
-        <br>
         <br>
         <br>
         <div class="authors">
@@ -87,6 +86,12 @@
             <a href="https://github.com/srutisrinidhi/XaiR" class="button">Paper</a>
             <a href="https://github.com/srutisrinidhi/XaiR" class="button">Code</a>
         </div>
+        <br>
+        <br>
+         <div class="pdf-container">
+            <embed src="path_to_your_document.pdf" type="application/pdf" width="100%" height="600px">
+        </div>
+        <br>
         <div class="abstract">
             <p>
                 This paper discusses the integration of Multimodal Large Language
