@@ -87,3 +87,5 @@ python3 -m cognitive-assistant-server.scripts.server_with_llm_for_instructing_hu
 
 
 On the ML2, set the `Server Address` of the `WebRTCConnection` component to `https://<YOUR IP ADDRESS>:8000`
+
+The unity application is written for the Magic Leap 2 and additional modifications will need to be made to run this on a different XR device.
