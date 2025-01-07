@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Audio Test Only</title>
+</head>
+<body>
+<h1>Audio Test with WebRTC</h1>
+<button id="startAudio">Start Audio</button>
+
+<script>
+async function startAudio() {
+  // 1. 获取音频流（请求麦克风权限）
+  let stream;
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+    console.log("Got audio stream:", stream);
+  } catch (err) {
+    console.error("Failed to get audio stream:", err);
+    return;
+  }
+
+  // 2. 创建RTCPeerConnection
+  const pc = new RTCPeerConnection({});
+
+  // 3. 把音频轨道加到PeerConnection里
+  stream.getTracks().forEach(track => {
+    pc.addTrack(track, stream);
+  });
+
+  // 4. 创建一个offer
+  const offer = await pc.createOffer();
+  await pc.setLocalDescription(offer);
+
+  // 5. 把offer发送到后端 /offer 路由
+  const response = await fetch('/offer', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      sdp: pc.localDescription.sdp,
+      type: pc.localDescription.type
+    })
+  });
+  const answer = await response.json();
+  console.log("Received answer from server:", answer);
+
+  // 6. 设置远端描述
+  await pc.setRemoteDescription(new RTCSessionDescription(answer));
+
+  // 现在WebRTC连接应该已建立；后端就会接收音频了
+  console.log("WebRTC audio connection established!");
+}
+
+document.getElementById('startAudio').onclick = startAudio;
+</script>
+</body>
+</html>

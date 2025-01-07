@@ -12,7 +12,7 @@ import cv2
 import torch
 import numpy as np
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from threading import Thread, Event
 import speech_recognition as sr
 from PIL import Image
@@ -49,6 +49,11 @@ audio_relay = MediaRelay()
 data_collector = DataCollector(MAX_IMAGES)
 ferret_gpt = FerretGPTQuerier(data_collector)
 
+# 修复点1：初始化 history
+history = HistoryLogger(data_collector)
+
+# 修复点2：初始化 pending_questions
+pending_questions = []
 
 # shared variables
 datachannels = {}
@@ -122,7 +127,8 @@ def process_user_speech_thread(source: sr.AudioSource, model_name="small", recor
     recognizer.listen_in_background(source, record_callback, phrase_time_limit=record_timeout)
 
     while True:
-        now = datetime.now(datetime.UTC)
+        now = datetime.now(timezone.utc)
+        # now = datetime.utcnow()
         start = time.time()
         # Pull raw recorded audio from the queue.
         if not data_queue.empty():
@@ -150,6 +156,8 @@ def process_user_speech_thread(source: sr.AudioSource, model_name="small", recor
             # Read the transcription.
             result = audio_model.transcribe(audio_np, fp16=torch.cuda.is_available())
             text = result['text'].strip()
+
+            print(f"[Whisper] Recognized text: '{text}'")
 
             # If we detected a pause between recordings, add a new item to our transcription.
             # Otherwise edit the existing one.
@@ -308,7 +316,7 @@ async def index(request):
     user_query = get_user_query()
 
     env = Environment(loader=FileSystemLoader('.'))
-    template = env.get_template('./docs/index.html')
+    template = env.get_template('./docs/audio_test.html')
 
     html = template.render(image_urls=image_urls, user_query=user_query)
 

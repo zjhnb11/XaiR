@@ -12,6 +12,8 @@ import cv2
 import torch
 import numpy as np
 
+import io
+
 from datetime import datetime, timedelta
 from threading import Thread, Event
 import speech_recognition as sr
@@ -31,6 +33,8 @@ from .model_interface.ferret_gpt_querier import FerretGPTQuerier
 from .spatial_memory import HistoryLogger
 from .utils import Frame, Question
 
+from .model_interface.get_gpt_response import ask_gpt, ask_gpt_3_5
+
 import av.logging
 # monkey patch av.logging.restore_default_callback, ie remove the annoying ffmpeg prints
 restore_default_callback = lambda *args: args
@@ -45,9 +49,9 @@ logger = logging.getLogger('pc')
 pcs = set()
 audio_relay = MediaRelay()
 
-
+# 用于保存图像、问题等的收集器
 data_collector = DataCollector(MAX_IMAGES)
-ferret_gpt = FerretGPTQuerier(data_collector)
+# ferret_gpt = FerretGPTQuerier(data_collector)
 
 
 # shared variables
@@ -98,7 +102,9 @@ class WebRTCSource(sr.AudioSource):
             data: np.ndarray = frames.to_ndarray()
             return data.tobytes()
 
-
+# 后台线程，用于处理来自用户的语音。
+# 使用 Whisper 模型将音频数据转录为文本。
+# 检测到关键短语（如“Alexa”）后触发相应的逻辑。
 def process_user_speech_thread(source: sr.AudioSource, model_name="small", record_timeout=4, phrase_timeout=3, energy_threshold=100):
     global pending_questions, sessionId, history
 
@@ -112,6 +118,7 @@ def process_user_speech_thread(source: sr.AudioSource, model_name="small", recor
     recognizer.energy_threshold = energy_threshold
     recognizer.dynamic_energy_threshold = False
 
+    # 进行环境噪音校正
     recognizer.adjust_for_ambient_noise(source)
 
     def record_callback(_, audio:sr.AudioData) -> None:
@@ -119,6 +126,8 @@ def process_user_speech_thread(source: sr.AudioSource, model_name="small", recor
         data = audio.get_raw_data()
         data_queue.put(data)
 
+    
+    # 启动 SR 后台监听
     recognizer.listen_in_background(source, record_callback, phrase_time_limit=record_timeout)
 
     while True:
@@ -183,7 +192,8 @@ def process_user_speech_thread(source: sr.AudioSource, model_name="small", recor
 
         time.sleep(0.1)
 
-
+# 自定义的音频轨道，用于处理音频流。
+# 实现了音频重采样和转发到语音识别模块的功能。
 class AudioTransformTrack(MediaStreamTrack):
     kind = 'audio'
 
@@ -197,15 +207,15 @@ class AudioTransformTrack(MediaStreamTrack):
         self.source = WebRTCSource(sample_rate=rate, sample_width=sample_width)
 
     async def recv(self):
-        global answer_from_assistant
+        # global answer_from_assistant
 
-        if ferret_gpt.get_answer() is not None:
-            response = ferret_gpt.get_answer()
-            datachannels[LLM_OUTPUT_DC_LABEL].send(response)
-            ferret_gpt.clear_answer()
+        # if ferret_gpt.get_answer() is not None:
+        #     response = ferret_gpt.get_answer()
+        #     datachannels[LLM_OUTPUT_DC_LABEL].send(response)
+        #     ferret_gpt.clear_answer()
 
-            print(f'Answer from LLM assistant: \"{response}\"')
-            print('Time taken:', response.time_taken, 'seconds')
+        #     print(f'Answer from LLM assistant: \"{response}\"')
+        #     print('Time taken:', response.time_taken, 'seconds')
 
         out_frame: AudioFrame = await self.track.recv()
 
@@ -217,27 +227,79 @@ class AudioTransformTrack(MediaStreamTrack):
         return out_frame
 
 
+#处理客户端发送的图像请求。
+#从请求中提取帧 ID 和图像数据，保存并添加到数据收集器中。
 async def receiveImage(request):
     global frameID
     # logger.info("trying to read")
-    request.auto_decompress = False
+    # request.auto_decompress = False
+
+    # 1. 读取请求中的所有字节
     image = b''
     while True:
         chunk = await request.content.read(1024)  # Adjust the buffer size as needed
         if not chunk:
             break
         image += chunk
-    logger.info(len(image))
-    frameID = image[:4]
-    frameID = int.from_bytes(frameID, byteorder='little')
-    logger.info(frameID)
-    img = Image.frombytes('RGBA', (640,480), image[4:], 'raw')
-    data_collector.add_frame(Frame(img, frameID))
-    # latest_frames_queue.put(Frame(img, frameID))
-    img.save("test" + str(frameID)+ ".png")
-    # logger.info("got image")
+    # logger.info(len(image))
+    # frameID = image[:4]
+    # frameID = int.from_bytes(frameID, byteorder='little')
+    # logger.info(frameID)
+    # img = Image.frombytes('RGBA', (640,480), image[4:], 'raw')
+    # data_collector.add_frame(Frame(img, frameID))
+           # latest_frames_queue.put(Frame(img, frameID))
+    # img.save("test" + str(frameID)+ ".png")
+           # logger.info("got image")
+
+    img = process_image_data(image, width=640, height=480)
+
+    return web.Response(text="Image received", status=200)
 
 
+def process_image_data(
+    raw_data: bytes, 
+    width: int = 640, 
+    height: int = 480,
+    # extract_frame_id: bool = True
+):
+    """
+    将上传的图像字节流解码并转换为指定的格式 (默认 640×480 RGBA)。
+    如果 extract_frame_id=True，则前4字节被视为 frameID，否则不做处理。
+
+    参数：
+    - raw_data: 原始图像的字节数据（如果 extract_frame_id=True，前4字节是 frameID，剩余才是图像数据）
+    - width, height: 转换后的目标宽高
+    - extract_frame_id: 是否需要从开头4字节提取 frameID
+
+    返回：
+    - img: 转换好的 PIL.Image 对象，格式为 RGBA，尺寸为 (width, height)
+    - frame_id: 若 extract_frame_id=True，则返回 int 类型的 frameID；
+                否则返回 None
+    """
+
+    # frame_id = None
+    # image_data = raw_data
+
+    # 如果需要提取 frameID，则把前4字节当作 frameID
+    # if extract_frame_id and len(raw_data) > 4:
+    #     frame_id = int.from_bytes(raw_data[:4], byteorder='little')
+    #     image_data = raw_data[4:]
+    
+    # 用 PIL 解码图像。这里能自动识别常见的 JPEG、PNG 等格式
+    img = Image.open(io.BytesIO(raw_data))
+
+    # 转换为 RGBA 格式
+    img = img.convert("RGBA")
+
+    # 将图像缩放到 (width, height)
+    if img.size != (width, height):
+        img = img.resize((width, height), resample=Image.Resampling.LANCZOS)
+
+    return img
+# , frame_id
+
+# 处理 WebRTC offer 请求。
+# 创建 RTCPeerConnection 并设置事件监听器（如连接状态变化和数据通道事件）。
 async def offer(request):
     params = await request.json()
     offer = RTCSessionDescription(sdp=params['sdp'], type=params['type'])
@@ -261,6 +323,15 @@ async def offer(request):
         # def on_message(message):
         #     log_info("IT RECEIVESSSSSSSSSSSSSSSSSSSSSS")
 
+
+        @channel.on("message")
+        def on_message(message):
+            log_info("DataChannel(%s) message: %s", channel.label, message)
+            # 测试文本方式：如果想测试客户端文本问题 -> GPT，则可在这里调用 ask_gpt 并发送回去
+            # 例如：
+            # gpt_response = ask_gpt(str(message))
+            # channel.send(gpt_response)
+
     @pc.on('connectionstatechange')
     async def on_connectionstatechange():
         log_info('Connection state is %s', pc.connectionState)
@@ -281,6 +352,7 @@ async def offer(request):
             if audio_track:
                 t = AudioTransformTrack(audio_track)
                 pc.addTrack(t)
+                # 开线程，后台处理语音
                 thread = Thread(target=process_user_speech_thread, daemon=True, args=(t.source,))
                 thread.start()
 
@@ -303,12 +375,14 @@ async def offer(request):
     )
 
 
+# 提供前端页面和最新图像数据的接口。
+# 通过 Jinja2 渲染 HTML 页面。
 async def index(request):
     image_urls = get_image_files()
     user_query = get_user_query()
 
     env = Environment(loader=FileSystemLoader('.'))
-    template = env.get_template('./docs/index.html')
+    template = env.get_template('./docs/index_test.html')
 
     html = template.render(image_urls=image_urls, user_query=user_query)
 
@@ -333,8 +407,17 @@ def get_image_files():
         image_urls.append(IMAGE_FOLDER + 'no-image.jpg')
     return image_urls[::-1]
 
-
+# 处理表单提交并跳转到主页。
 async def handle_form(request):
+    # 示例：读取文本表单
+    data = await request.post()
+    user_input = data.get('user_input', '')
+    if user_input:
+        print("User input from form:", user_input)
+        gpt_resp = ask_gpt(user_input)
+        print("GPT response:", gpt_resp)
+        # 同样可以通过数据通道发送到客户端，或直接渲染到页面中
+
     return web.HTTPFound('/')
 
 
@@ -371,7 +454,7 @@ if __name__ == '__main__':
     else:
         ssl_context = None
 
-    ferret_gpt.start()
+    # ferret_gpt.start()
 
     # history_logging_thread = Thread(target=scene_description_background_processing)
     # history_logging_thread.start()

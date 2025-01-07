@@ -27,15 +27,15 @@ def encode_image_to_base64(image_path):
         encoded_string = base64.b64encode(b).decode('utf-8')
     return encoded_string
 
-def create_question_content(prompt, views):
+def create_question_content(prompt):
     content_list = []
 
-    temp = dict()
-    for view in views:
-        cv2.imwrite("temp.png", cv2.cvtColor(view, cv2.COLOR_RGB2BGR))
-        temp["type"] = "image_url"
-        temp["image_url"] = { "url": f"data:image/jpeg;base64,{encode_image_to_base64('temp.png')}"}
-        content_list.append(temp.copy())
+    # temp = dict()
+    # for view in views:
+    #     cv2.imwrite("temp.png", cv2.cvtColor(view, cv2.COLOR_RGB2BGR))
+    #     temp["type"] = "image_url"
+    #     temp["image_url"] = { "url": f"data:image/jpeg;base64,{encode_image_to_base64('temp.png')}"}
+    #     content_list.append(temp.copy())
 
     text = dict()
     text["type"] = "text"
@@ -44,9 +44,9 @@ def create_question_content(prompt, views):
 
     return content_list
 
-
-def ask_gpt(prompt, views):
-    content = create_question_content(prompt, views)
+# gpt api price: https://openai.com/api/pricing/
+def ask_gpt(prompt):
+    content = create_question_content(prompt)
     client = OpenAI(api_key=API_KEY)
 
     response = client.chat.completions.create(

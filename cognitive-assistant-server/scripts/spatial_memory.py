@@ -50,7 +50,7 @@ class HistoryLogger:
 
     def print_history(self):
         j = json.dumps(self.history, indent=4, sort_keys=True)
-        with open("sample_%d.json" % rep, "w") as outfile:
+        with open("sample_%d.json" % repr, "w") as outfile:
             outfile.write(j)
         self.get_summary_gpt(self.sessionID)
 

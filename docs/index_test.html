@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XaiR - An XR Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .header, .image, .video, .testing {
+            text-align: center;
+        }
+        .image img, .video iframe {
+            width: 720px;
+            max-width: 100%;
+        }
+        .spacing {
+            margin-top: 40px;
+        }
+        .testing h3 {
+            margin-bottom: 20px;
+        }
+        .testing .test-block {
+            margin-bottom: 30px;
+        }
+        .test-block form, .test-block div {
+            margin: 15px auto;
+        }
+        .test-block input[type="text"] {
+            width: 300px;
+            padding: 5px;
+        }
+        .test-block button {
+            background-color: #555;
+            color: #fff;
+            padding: 6px 12px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+        .test-block button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 平台标题 -->
+        <div class="header">
+            <h1>XaiR</h1>
+        </div>
+
+        <!-- 测试功能区块 -->
+        <div class="testing spacing">
+            <h3>功能测试</h3>
+
+            <!-- 1. 文本测试（表单） -->
+            <div class="test-block">
+                <h4>文本测试</h4>
+                <p>在此输入文本并提交到后端（/submit）,后端会调用GPT并返回结果。</p>
+                <form action="/submit" method="post">
+                    <input type="text" name="user_input" placeholder="Ask the LLM something..." />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <!-- 3. 音频 / 视频 测试（示例性） -->
+            <div class="test-block">
+                <h4>音频 / 视频 测试</h4>
+                <p>以下示例仅请求麦克风或摄像头权限，方便快速验证。完整 WebRTC 流程需要信令交互。</p>
+                <button id="startAudioBtn">Start Audio</button>
+                <button id="startVideoBtn">Start Video</button>
+                <div id="mediaStatus"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 简易 JS，用来处理上传和权限测试 -->
+    <script>
+        // ============== 音频 / 视频 测试脚本 ==============
+        const startAudioBtn = document.getElementById('startAudioBtn');
+        const startVideoBtn = document.getElementById('startVideoBtn');
+        const mediaStatus = document.getElementById('mediaStatus');
+
+        // 仅请求麦克风权限
+        startAudioBtn.addEventListener('click', async () => {
+            try {
+                const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaStatus.innerText = "Audio stream started. Check console or server logs for more details.";
+                // 在此可进一步进行 PeerConnection 或录音逻辑
+            } catch (err) {
+                mediaStatus.innerText = "Failed to start audio: " + err;
+            }
+        });
+
+        // 仅请求摄像头权限
+        startVideoBtn.addEventListener('click', async () => {
+            try {
+                const videoStream = await navigator.mediaDevices.getUserMedia({ video: true });
+                mediaStatus.innerText = "Video stream started. Check console or server logs for more details.";
+                // 同上，可进一步做 WebRTC 发送到服务器的操作
+            } catch (err) {
+                mediaStatus.innerText = "Failed to start video: " + err;
+            }
+        });
+    </script>
+</body>
+</html>
